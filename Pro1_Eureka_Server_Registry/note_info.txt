@@ -1,0 +1,20 @@
+
+step to create Eurekha Server
+1) create spring boot starter project and add depedencies 
+        i)spring-web [spring-boot-starter-web]
+        ii) eureka-server [spring-cloud-starter-netflix-eureka-server]
+    
+ 2) Spring main class or Entry class defined @EnableEurekaServer
+ 3) application.properties file convert into application.yml 
+ 4) application.yml 
+    
+     server:
+     port: 8761
+  
+	 #disable unknow default service
+	eureka:
+	  client:
+ 	   register-with-eureka: false  
+ 	   fetch-registry: false
+ 
+ 

@@ -1,0 +1,10 @@
+server:
+  port: 8761
+  
+  
+  
+ #disable unknow default service
+eureka:  client:    register-with-eureka: false  
+    fetch-registry: false
+ 
+ 
