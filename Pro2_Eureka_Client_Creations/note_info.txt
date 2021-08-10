@@ -1,0 +1,37 @@
+
+Step to creation Eureka server client :
+
+ 1) Create Spring starter project.
+ 2)add depedency 
+       i)Spring web[spring-boot-starter-web]
+       ii)eureka discovery client[spring-cloud-starter-netflix-eureka-client]
+      
+ 3)change application.properties to application.yml
+ 
+       server:
+          port: 1111
+
+
+       #Change service/module default name  
+      spring:
+          application:
+             name: HI-SERVICE
+             
+ 4) Spring start/entry class defined @EnableDiscoveryClient
+ 5) create controller with some method with endpoint. 
+			  @RestController
+			public class HiController {
+				@GetMapping(value = "/hi")
+				public String sayHi()
+				{
+					String hiMsg="Hi";
+					return hiMsg;
+				}
+				}
+				
+	6) start/run Eureka server
+	7) start/run Eureka Client
+	8)hit url Eureka Server : url  - http://localhost:8761/
+	9) hit url or run using eureka dashboard url : http://laptop-mlma0n46:1111/hi
+                       
+ 
