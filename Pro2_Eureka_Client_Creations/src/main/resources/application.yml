@@ -4,3 +4,13 @@ server:
 
 #Change service/module default name  
 spring:  application:    name: HI-SERVICE
+   
+   
+   #When need only if we change eureka server default port
+   
+#eureka:
+  #client:
+    #serviceUrl:
+      #default: http://localhost:9999/eureka
+      
+ 
