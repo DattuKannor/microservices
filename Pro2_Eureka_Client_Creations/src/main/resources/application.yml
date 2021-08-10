@@ -1,0 +1,6 @@
+server:
+  port: 1111
+
+
+#Change service/module default name  
+spring:  application:    name: HI-SERVICE
