@@ -1,0 +1,4 @@
+server:
+  port: 1111
+  
+spring:  application:    name: HI_SERVICE

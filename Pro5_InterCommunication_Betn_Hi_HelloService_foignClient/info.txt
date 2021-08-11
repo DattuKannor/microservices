@@ -1,0 +1,61 @@
+
+
+    ****** Inter service communication*****
+    If our project, if one micro-service accessing another microservice then it is called inter-service communicatin.
+    
+    3 Way 
+    1) Rest Template (best for extenal communication)
+    2) Web Client (best for extenal communication)
+    3) Feign Client (best for inter communication)
+    
+    
+    Step to Inter Service communications:
+    1)Create Spring Starter Project 
+         Eureka Server Registry [Pro1_Ereka_Server_Registry-8761]
+         
+    2)Create Hello_Service
+         Pro4_Eureka_Client_HelloSerive
+     
+    3) IMP :
+         Create Hi_Service for communication with HelloService
+         i)Create Spring boot starter project [Pro5_InterCommunication_Betn_Hi_HelloService_foignClient]
+         ii)Add depedencies ;
+               Spring-cloud-starter-openfeign
+               Spring web
+               Eureka-client
+         iii) Anable annotation at Entry class @EnableFeignClient      
+         iv)create package com.edubuddy.client
+                      create HelloClient interface
+                      
+						 @FeignClient(name = "HELLO-SERVICE")
+						public interface HelloClient {
+							@GetMapping(value ="hello/{name}")
+							public String invokeHelloService(@PathVariable("name")String name);
+						}
+						
+         v) Create package com.edubuddy.controller
+         
+				@RestController
+				public class HiController 
+				{
+					@Autowired
+					HelloClient helloClient;
+				
+					@GetMapping(value = "/hi/{name}")
+					public String sayHi(@PathVariable("name") String name)
+					{
+						String hiMsg="Hi";
+						String helloServiceResult=helloClient.invokeHelloService(name);
+						return hiMsg+",--"+helloServiceResult;
+					}
+				}
+				
+	     vi) Run pro1,pro4 and pro5
+	           url : http://laptop-mlma0n46:1111/hi/malhar [Hi service communicate with hello]
+	           
+             						
+                      
+                       
+     
+    
+         
